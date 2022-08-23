@@ -14,13 +14,17 @@ listening_sock.listen(1)
 # Create a new conversation socket
 client_soc, client_address = listening_sock.accept()
 publicKey, privateKey = rsa.newkeys(512)
+print(type(publicKey.n))
+print(type(publicKey.e))
+
 n = str(publicKey.n)
 e = str(publicKey.e)
 msg = n+";"+e
 client_soc.sendall(msg.encode())
 client_msg = client_soc.recv(1024)
-client_msg = client_msg.decode()
+client_msg = client_msg
 listening_sock.close()
+decMessage = rsa.decrypt(client_msg, privateKey).decode()
 """
 sending message to server
 """

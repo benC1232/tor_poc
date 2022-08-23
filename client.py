@@ -1,3 +1,4 @@
+import rsa
 import socket
 SERVER_IP = "127.0.0.1"
 SERVER_PORT = 5555
@@ -12,6 +13,9 @@ server_msg = sock.recv(1024)
 server_msg = server_msg.decode()
 key = server_msg
 print("key is: "+key)
+keys = key.split(";")
+publicKey = rsa.PublicKey(keys[0],key[1])
 msg = input()
-sock.sendall(msg.encode())
+encMessage = rsa.encrypt(msg.encode(), publicKey)
+sock.sendall(encMessage)
 sock.close()
