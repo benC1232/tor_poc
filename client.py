@@ -14,7 +14,7 @@ server_msg = server_msg.decode()
 key = server_msg
 print("key is: "+key)
 keys = key.split(";")
-publicKey = rsa.PublicKey(keys[0],key[1])
+publicKey = rsa.PublicKey(int(keys[0]),int(key[1]))
 msg = input()
 encMessage = rsa.encrypt(msg.encode(), publicKey)
 sock.sendall(encMessage)

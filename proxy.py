@@ -13,7 +13,7 @@ listening_sock.bind(server_address)
 listening_sock.listen(1)
 # Create a new conversation socket
 client_soc, client_address = listening_sock.accept()
-publicKey, privateKey = rsa.newkeys(512)
+publicKey, privateKey = rsa.newkeys(64)
 print(type(publicKey.n))
 print(type(publicKey.e))
 
@@ -35,7 +35,6 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Connecting to remote computer 80
 server_address = (SERVER_IP, SERVER_PORT)
 sock.connect(server_address)
-msg = client_msg
-sock.sendall(msg.encode())
+sock.sendall(decMessage)
 print("message sent to server was: "+msg)
 sock.close()
