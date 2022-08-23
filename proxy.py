@@ -1,4 +1,4 @@
-import encription
+import rsa
 import socket
 LISTEN_PORT = 5555
 """
@@ -13,7 +13,10 @@ listening_sock.bind(server_address)
 listening_sock.listen(1)
 # Create a new conversation socket
 client_soc, client_address = listening_sock.accept()
-msg = "key"
+publicKey, privateKey = rsa.newkeys(512)
+n = str(publicKey.n)
+e = str(publicKey.e)
+msg = n+";"+e
 client_soc.sendall(msg.encode())
 client_msg = client_soc.recv(1024)
 client_msg = client_msg.decode()
