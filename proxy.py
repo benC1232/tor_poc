@@ -20,7 +20,7 @@ msg = n+";"+e
 client_soc.sendall(msg.encode())
 client_msg = client_soc.recv(1024)
 client_msg = client_msg.decode()
-
+listening_sock.close()
 """
 sending message to server
 """
@@ -34,3 +34,4 @@ sock.connect(server_address)
 msg = client_msg
 sock.sendall(msg.encode())
 print("message sent to server was: "+msg)
+sock.close()

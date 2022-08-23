@@ -14,4 +14,4 @@ key = server_msg
 print("key is: "+key)
 msg = input()
 sock.sendall(msg.encode())
-
+sock.close()
