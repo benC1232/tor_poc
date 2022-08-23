@@ -1,6 +1,6 @@
+import encription
 import socket
 LISTEN_PORT = 5555
-print()
 """
 recieving encrypted message from client
 """
