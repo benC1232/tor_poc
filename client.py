@@ -11,6 +11,7 @@ sock.connect(server_address)
 server_msg = sock.recv(1024)
 server_msg = server_msg.decode()
 key = server_msg
+print("key is: "+key)
 msg = input()
 sock.sendall(msg.encode())
 

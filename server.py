@@ -15,3 +15,4 @@ def main() -> None:
             client_soc, client_addr = sock.accept()
             client_msg = client_soc.recv(1024).decode()
             print(client_msg)
+main()
