@@ -18,7 +18,7 @@ server_msg = sock.recv(1024)
 decoded = str(server_msg, 'utf8')
 e = int(decoded)
 #getting message to send to server
-msg = input("")
+msg = input("enter message: ")
 #encrypting message
 publicKey = rsa.PublicKey(n, e)
 encMessage = rsa.encrypt(msg.encode(), publicKey)
